@@ -3,6 +3,7 @@ package com.bugmanager.controller;
 import com.alibaba.fastjson.JSON;
 import com.bugmanager.entity.BugDetail;
 import com.bugmanager.entity.BugProject;
+import com.bugmanager.module.ErrorInfo;
 import com.bugmanager.service.BugService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class BugController {
         view.addObject("projectId", projectId);
         view.addObject("projectList", projectList);
         view.addObject("bugList", bugList);
+        //把枚举数据存进来带到前端
+        view.addObject("errorList", ErrorInfo.values());
         return view;
     }
 

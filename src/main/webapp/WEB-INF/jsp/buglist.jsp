@@ -23,6 +23,7 @@
             var projectId = $.trim($("#name").val());
             window.location.href = "${pageContext.request.contextPath}/getBugList?projectId=" + projectId;
         }
+
         function add() {
             window.location.href = "${pageContext.request.contextPath}/add.html";
         }
@@ -68,15 +69,11 @@
             <tr>
                 <td>${detail.id}</td>
                 <td>
-                    <c:if test="${detail.severity == 10}">
-                        文字错误
-                    </c:if>
-                    <c:if test="${detail.severity == 20}">
-                        次要错误
-                    </c:if>
-                    <c:if test="${detail.severity == 30}">
-                        严重错误
-                    </c:if>
+                    <c:forEach items="${errorList}" var="error">
+                        <c:if test="${detail.severity == error.code}">
+                            ${error.name}
+                        </c:if>
+                    </c:forEach>
                 </td>
                 <td>${detail.title}</td>
                 <td>${detail.reportUser}</td>
