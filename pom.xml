@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.bug</groupId>
-  <artifactId>bug</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>com.bug</groupId>
+    <artifactId>bug</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>bug</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.ekgc.cn</url>
-  <packaging>war</packaging>
+    <name>bug</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.ekgc.cn</url>
+    <packaging>war</packaging>
     <properties>
         <!-- jdk版本 -->
         <jdk.version>14</jdk.version>
@@ -213,7 +213,7 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8080</port>
-                    <path>/</path>
+                    <path>/ssmDemo</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <!-- tomcat热部署 -->
                     <username>lxy</username>
@@ -231,7 +231,7 @@
                     <scanIntervalSeconds>1</scanIntervalSeconds>
                     <reload>automatic</reload>
                     <webApp>
-                        <contextPath>/</contextPath>
+                        <contextPath>/ssmDemo</contextPath>
                     </webApp>
                     <httpConnector>
                         <port>8080</port>
