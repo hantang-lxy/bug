@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bugmanager.dao.BugMapper">
+    <cache eviction="FIFO" flushInterval="600000" readOnly="true" size="512"/>
+
+    <select id="selectBugList" parameterType="integer" resultType="bugDetail">
+        select * from bug_detail where 1
+        <if test="projectId != null">
+            AND projectId = #{projectId}
+        </if>
+        order by createDate desc
+    </select>
+    <select id="selectBugProjectList" resultType="bugProject">
+        SELECT * FROM bug_project
+    </select>
+    <insert id="insertBugDetail" parameterType="bugDetail">
+        INSERT INTO bug_detail (projectId,severity,title,reportUser,createDate) VALUE (#{projectId},#{severity},#{title},#{reportUser},#{createDate})
+    </insert>
+</mapper>
