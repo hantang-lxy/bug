@@ -1,0 +1,2 @@
+# bug
+manage bug
