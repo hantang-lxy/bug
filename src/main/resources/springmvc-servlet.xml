@@ -47,9 +47,9 @@
         <property name="serializerFeatures">
             <list>
                 <value>WriteMapNullValue</value> <!--  是否输出值为 null 的字段 , 默认为 false-->
-                <value>WriteMapNullValue</value> <!--  是否输出值为 null 的字段 , 默认为 false-->
                 <value>WriteNullListAsEmpty</value> <!-- List 字段如果为 null, 输出为 [], 而非 null-->
                 <value>WriteNullStringAsEmpty</value> <!--  字符类型字段如果为 null, 输出为 ”“, 而非 null-->
+                <value>WriteDateUseDateFormat</value> <!--  时间类型默认格式为：yyyy-MM-dd HH:mm:ss 全局配置-->
             </list>
         </property>
     </bean>

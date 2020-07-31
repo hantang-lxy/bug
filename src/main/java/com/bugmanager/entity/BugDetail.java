@@ -1,5 +1,6 @@
 package com.bugmanager.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,7 +48,10 @@ public class BugDetail implements Serializable {
     private String reportUser;
     /**
      * 创建时间
+     * JSONField:打印到页面时间显示的格式
+     * DateTimeFormat：从页面上字符串返回到服务器需要转换为时间类型的格式
      */
+//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
 

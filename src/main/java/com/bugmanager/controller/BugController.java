@@ -3,9 +3,12 @@ package com.bugmanager.controller;
 import com.alibaba.fastjson.JSON;
 import com.bugmanager.entity.BugDetail;
 import com.bugmanager.entity.BugProject;
+import com.bugmanager.module.Dto;
 import com.bugmanager.module.ErrorInfo;
 import com.bugmanager.service.BugService;
+import com.bugmanager.utils.DtoUtil;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,19 +51,20 @@ public class BugController {
     public String add(Model model) {
         List<BugProject> projectList = bugService.getBugProjectList();
         model.addAttribute("projectList", projectList);
+        model.addAttribute("errorList", ErrorInfo.values());
         return "add";
     }
 
     @PostMapping("add.html")
     @ResponseBody
-    public String addBugDetail(BugDetail detail) {
+    public Dto<T> addBugDetail(BugDetail detail) {
         Date date = new Date();
         detail.setCreateDate(date);
         int count = bugService.addBugDetail(detail);
         if (count > 0) {
-            return "ok";
+            return DtoUtil.returnSuccess();
         }
-        return "failed";
+        return DtoUtil.returnFail();
 
     }
 

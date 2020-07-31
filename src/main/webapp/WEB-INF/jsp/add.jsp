@@ -20,9 +20,11 @@
                 url: "${pageContext.request.contextPath}/add.html",
                 dataType: "json",
                 success: function (result) {
-                    if (result == "ok") {
+                    if (result.success) {
                         alert("添加成功！");
                         window.location.href = "${pageContext.request.contextPath}/getBugList"
+                    } else {
+                        alert("添加失败！")
                     }
 
                 },
@@ -56,13 +58,12 @@
             <div>
                 <label for="severity">严重性</label>
                 <select name="severity" class="form-control" id="severity">
-                    <option value="10">文字错误</option>
-                    <option value="20">次要错误</option>
-                    <option value="30">严重错误</option>
+                    <c:forEach items="${errorList}" var="error">
+                        <option value="${error.code}"> ${error.name}</option>
+                    </c:forEach>
                 </select>
             </div>
             <br>
-
             <div>
                 <label for="title">BUG标题</label>
                 <input type="text" class="form-control" name="title" id="title"
